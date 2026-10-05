@@ -1,1 +1,51 @@
-<div class="pagina"> <div class="container"> <h1>🧮 Calculadora de Percentagem</h1> <p class="descricao"> Calcule qualquer percentagem de qualquer valor. </p> <!-- ====================================== --> <!-- 1. PERCENTAGEM DE UM VALOR --> <!-- ====================================== --> <div class="card"> <h2>1. Percentagem de um valor</h2> <div class="campo"> <label for="percentagem"> Percentagem (%) </label> <input id="percentagem" type="number" [(ngModel)]="percentagem" placeholder="Ex: 10" step="any" > </div> <div class="campo"> <label for="valor"> Valor </label> <input id="valor" type="number" [(ngModel)]="valor" placeholder="Ex: 5000" step="any" > </div> <button type="button" (click)="calcularPercentagem()" > Calcular </button> <div class="resultado"> {{ resultado || 'Resultado aparecerá aqui' }} </div> </div> <!-- ====================================== --> <!-- 2. DESCOBRIR PERCENTAGEM --> <!-- ====================================== --> <div class="card"> <h2>2. Descobrir qual é a percentagem</h2> <div class="campo"> <label for="parte"> Parte </label> <input id="parte" type="number" [(ngModel)]="parte" placeholder="Ex: 500" step="any" > </div> <div class="campo"> <label for="total"> Valor total </label> <input id="total" type="number" [(ngModel)]="total" placeholder="Ex: 2000" step="any" > </div> <button type="button" (click)="calcularPercentagemDoTotal()" > Calcular </button> <div class="resultado"> {{ resultado2 || 'Resultado aparecerá aqui' }} </div> </div> <!-- ====================================== --> <!-- 3. AUMENTAR VALOR --> <!-- ====================================== --> <div class="card"> <h2>3. Aumentar um valor em percentagem</h2> <div class="campo"> <label for="valorAumento"> Valor </label> <input id="valorAumento" type="number" [(ngModel)]="valorAumento" placeholder="Ex: 5000" step="any" > </div> <div class="campo"> <label for="percentagemAumento"> Percentagem de aumento (%) </label> <input id="percentagemAumento" type="number" [(ngModel)]="percentagemAumento" placeholder="Ex: 20" step="any" > </div> <button type="button" (click)="calcularAumento()" > Calcular </button> <div class="resultado"> {{ resultado3 || 'Resultado aparecerá aqui' }} </div> </div> <!-- ====================================== --> <!-- 4. DESCONTO --> <!-- ====================================== --> <div class="card"> <h2>4. Diminuir um valor em percentagem</h2> <div class="campo"> <label for="valorDesconto"> Valor </label> <input id="valorDesconto" type="number" [(ngModel)]="valorDesconto" placeholder="Ex: 5000" step="any" > </div> <div class="campo"> <label for="percentagemDesconto"> Percentagem de desconto (%) </label> <input id="percentagemDesconto" type="number" [(ngModel)]="percentagemDesconto" placeholder="Ex: 20" step="any" > </div> <button type="button" (click)="calcularDesconto()" > Calcular </button> <div class="resultado"> {{ resultado4 || 'Resultado aparecerá aqui' }} </div> </div> </div> </div>
+<div class="pagina">
+  <div class="container">
+    <h1>🧮 Calculadora de Percentagem</h1>
+    <p class="descricao"> Calcule qualquer percentagem de qualquer valor. </p>
+    <!-- ====================================== -->
+    <!-- 1. PERCENTAGEM DE UM VALOR -->
+    <!-- ====================================== -->
+    <div class="card">
+      <h2>1. Percentagem de um valor</h2>
+      <div class="campo"> <label for="percentagem"> Percentagem (%) </label> <input id="percentagem" type="number"
+          [(ngModel)]="percentagem" placeholder="Ex: 10" step="any"> </div>
+      <div class="campo"> <label for="valor"> Valor </label> <input id="valor" type="number" [(ngModel)]="valor"
+          placeholder="Ex: 5000" step="any"> </div> <button type="button" (click)="calcularPercentagem()"> Calcular
+      </button>
+      <div class="resultado"> {{ resultado || 'Resultado aparecerá aqui' }} </div>
+    </div> <!-- ====================================== -->
+    <!-- 2. DESCOBRIR PERCENTAGEM -->
+    <!-- ====================================== -->
+    <div class="card">
+      <h2>2. Descobrir qual é a percentagem</h2>
+      <div class="campo"> <label for="parte"> Parte </label> <input id="parte" type="number" [(ngModel)]="parte"
+          placeholder="Ex: 500" step="any"> </div>
+      <div class="campo"> <label for="total"> Valor total </label> <input id="total" type="number" [(ngModel)]="total"
+          placeholder="Ex: 2000" step="any"> </div> <button type="button" (click)="calcularPercentagemDoTotal()">
+        Calcular </button>
+      <div class="resultado"> {{ resultado2 || 'Resultado aparecerá aqui' }} </div>
+    </div> <!-- ====================================== -->
+    <!-- 3. AUMENTAR VALOR -->
+    <!-- ====================================== -->
+    <div class="card">
+      <h2>3. Aumentar um valor em percentagem</h2>
+      <div class="campo"> <label for="valorAumento"> Valor </label> <input id="valorAumento" type="number"
+          [(ngModel)]="valorAumento" placeholder="Ex: 5000" step="any"> </div>
+      <div class="campo"> <label for="percentagemAumento"> Percentagem de aumento (%) </label> <input
+          id="percentagemAumento" type="number" [(ngModel)]="percentagemAumento" placeholder="Ex: 20" step="any"> </div>
+      <button type="button" (click)="calcularAumento()"> Calcular </button>
+      <div class="resultado"> {{ resultado3 || 'Resultado aparecerá aqui' }} </div>
+    </div> <!-- ====================================== -->
+    <!-- 4. DESCONTO -->
+    <!-- ====================================== -->
+    <div class="card">
+      <h2>4. Diminuir um valor em percentagem</h2>
+      <div class="campo"> <label for="valorDesconto"> Valor </label> <input id="valorDesconto" type="number"
+          [(ngModel)]="valorDesconto" placeholder="Ex: 5000" step="any"> </div>
+      <div class="campo"> <label for="percentagemDesconto"> Percentagem de desconto (%) </label> <input
+          id="percentagemDesconto" type="number" [(ngModel)]="percentagemDesconto" placeholder="Ex: 20" step="any">
+      </div> <button type="button" (click)="calcularDesconto()"> Calcular </button>
+      <div class="resultado"> {{ resultado4 || 'Resultado aparecerá aqui' }} </div>
+    </div>
+  </div>
+</div>

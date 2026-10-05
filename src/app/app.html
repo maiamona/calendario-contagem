@@ -1,31 +1,26 @@
 <nav class="navbar">
-   <div class="navbar-container">
-     <!-- LOGO --> 
-      <a routerLink="/" class="logo" > 📅 Meu Calendário </a>
-       <!-- MENU -->
-         <div class="menu">
-          <a routerLink="/adicionar-dias"
-              routerLinkActive="ativo" >
-               📆 Adicionar dias 
-              </a>
-           <a routerLink="/"
-            routerLinkActive="ativo" 
-            [routerLinkActiveOptions]="{ exact: true }" >
-             📅 Calendário
-             </a>
-             
-              <a routerLink="/calculadora-percentagem" 
-              routerLinkActive="ativo" > 
-              % Percentagem 
-            </a> 
-            <a routerLink="/calculadora"
-             routerLinkActive="ativo" >
-              🧮 Calculadora 
-            </a>
-             
-             </div>
-             </div>
-             </nav>
-              <main>
-                 <router-outlet></router-outlet> 
-                </main>
+  <div class="navbar-container">
+    <!-- LOGO -->
+    <a routerLink="/" class="logo"> 📅 Meu Calendário </a>
+    <!-- MENU -->
+    <div class="menu">
+      <a routerLink="/adicionar-dias" routerLinkActive="ativo">
+        📆 Adicionar dias
+      </a>
+      <a routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">
+        📅 Calendário
+      </a>
+
+      <a routerLink="/calculadora-percentagem" routerLinkActive="ativo">
+        % Percentagem
+      </a>
+      <a routerLink="/calculadora" routerLinkActive="ativo">
+        🧮 Calculadora
+      </a>
+
+    </div>
+  </div>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>

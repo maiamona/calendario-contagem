@@ -1,1 +1,17 @@
-<div class="pagina"> <div class="cartao"> <div class="icone"> 📅 </div> <h1>Calculadora de Dias</h1> <p class="descricao"> Descubra qual será a data depois de adicionar uma determinada quantidade de dias. </p> <!-- DATA INICIAL --> <div class="campo"> <label for="dataInicial"> Data inicial </label> <input id="dataInicial" type="date" [(ngModel)]="dataInicial" > </div> <!-- BOTÃO HOJE --> <button type="button" class="btn-hoje" (click)="usarHoje()" > 📆 Usar a data de hoje </button> <!-- QUANTIDADE DE DIAS --> <div class="campo"> <label for="quantidadeDias"> Quantidade de dias </label> <input id="quantidadeDias" type="number" [(ngModel)]="quantidadeDias" placeholder="Ex: 50" min="0" > </div> <!-- BOTÃO CALCULAR --> <button type="button" class="btn-calcular" (click)="calcular()" > 🧮 Calcular data </button> <!-- BOTÃO LIMPAR --> <button type="button" class="btn-limpar" (click)="limpar()" > 🗑 Limpar </button> <!-- RESULTADO --> @if (resultado) { <div class="resultado"> <span class="titulo-resultado"> 📅 A data será: </span> <strong> {{ resultado }} </strong> @if (diaSemana) { <span class="dia-semana"> {{ diaSemana }} </span> } </div> } </div> </div>
+<div class="pagina">
+  <div class="cartao">
+    <div class="icone"> 📅 </div>
+    <h1>Calculadora de Dias</h1>
+    <p class="descricao"> Descubra qual será a data depois de adicionar uma determinada quantidade de dias. </p>
+    <!-- DATA INICIAL -->
+    <div class="campo"> <label for="dataInicial"> Data inicial </label> <input id="dataInicial" type="date"
+        [(ngModel)]="dataInicial"> </div> <!-- BOTÃO HOJE --> <button type="button" class="btn-hoje"
+      (click)="usarHoje()"> 📆 Usar a data de hoje </button> <!-- QUANTIDADE DE DIAS -->
+    <div class="campo"> <label for="quantidadeDias"> Quantidade de dias </label> <input id="quantidadeDias"
+        type="number" [(ngModel)]="quantidadeDias" placeholder="Ex: 50" min="0"> </div> <!-- BOTÃO CALCULAR --> <button
+      type="button" class="btn-calcular" (click)="calcular()"> 🧮 Calcular data </button> <!-- BOTÃO LIMPAR --> <button
+      type="button" class="btn-limpar" (click)="limpar()"> 🗑 Limpar </button> <!-- RESULTADO --> @if (resultado) { <div
+      class="resultado"> <span class="titulo-resultado"> 📅 A data será: </span> <strong> {{ resultado }} </strong> @if
+      (diaSemana) { <span class="dia-semana"> {{ diaSemana }} </span> } </div> }
+  </div>
+</div>

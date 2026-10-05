@@ -22,19 +22,12 @@
       </label>
 
 
-      <input
-        id="data"
-        type="date"
-        [(ngModel)]="dataSelecionada"
-      >
+      <input id="data" type="date" [(ngModel)]="dataSelecionada">
 
     </div>
 
 
-    <button
-      class="btn-guardar"
-      (click)="guardarData()"
-    >
+    <button class="btn-guardar" (click)="guardarData()">
 
       💾 Guardar nova data
 
@@ -57,13 +50,13 @@
 
     @if (datas.length === 0) {
 
-      <div class="sem-datas">
+    <div class="sem-datas">
 
-        <p>
-          Não existem datas guardadas.
-        </p>
+      <p>
+        Não existem datas guardadas.
+      </p>
 
-      </div>
+    </div>
 
     }
 
@@ -74,167 +67,160 @@
 
     @for (data of datas; track data.id) {
 
-      <div
-        class="data-card"
-        [class.data-chegou]="
+    <div class="data-card" [class.data-chegou]="
           obterContador(data.id)?.chegou
-        "
-      >
+        ">
 
 
-        <!-- DATA -->
+      <!-- DATA -->
 
-        <div class="data-cabecalho">
+      <div class="data-cabecalho">
 
-          <div>
+        <div>
 
-            <span class="label-data">
-              Data pretendida
-            </span>
-
-
-            <h3>
-
-              📅
-              {{ formatarData(data.data_final) }}
-
-            </h3>
-
-          </div>
+          <span class="label-data">
+            Data pretendida
+          </span>
 
 
-          <button
-            class="btn-apagar"
-            (click)="apagarData(data.id)"
-          >
+          <h3>
 
-            🗑 Apagar
+            📅
+            {{ formatarData(data.data_final) }}
 
-          </button>
+          </h3>
 
         </div>
 
 
-        <!-- ================================= -->
-        <!-- CONTAGEM -->
-        <!-- ================================= -->
+        <button class="btn-apagar" (click)="apagarData(data.id)">
 
-        @if (
-          obterContador(data.id);
-          as contador
-        ) {
+          🗑 Apagar
 
-
-          @if (!contador.chegou) {
-
-            <div class="contador-area">
-
-              <div class="mensagem">
-
-                ⏳ Falta:
-
-              </div>
-
-
-              <div class="contador">
-
-                <div class="tempo">
-
-                  <strong>
-                    {{ contador.dias }}
-                  </strong>
-
-                  <span>
-                    dias
-                  </span>
-
-                </div>
-
-
-                <div class="tempo">
-
-                  <strong>
-                    {{ contador.horas }}
-                  </strong>
-
-                  <span>
-                    horas
-                  </span>
-
-                </div>
-
-
-                <div class="tempo">
-
-                  <strong>
-                    {{ contador.minutos }}
-                  </strong>
-
-                  <span>
-                    minutos
-                  </span>
-
-                </div>
-
-
-                <div class="tempo">
-
-                  <strong>
-                    {{ contador.segundos }}
-                  </strong>
-
-                  <span>
-                    segundos
-                  </span>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          }
-
-
-          @if (contador.chegou) {
-
-            <div class="chegou">
-
-              <div class="icone">
-
-                🎉
-
-              </div>
-
-
-              <h2>
-
-                Chegou o dia pretendido!
-
-              </h2>
-
-
-              <p>
-
-                A data
-                <strong>
-                  {{ formatarData(data.data_final) }}
-                </strong>
-                chegou.
-
-              </p>
-
-            </div>
-
-          }
-
-        }
+        </button>
 
       </div>
+
+
+      <!-- ================================= -->
+      <!-- CONTAGEM -->
+      <!-- ================================= -->
+
+      @if (
+      obterContador(data.id);
+      as contador
+      ) {
+
+
+      @if (!contador.chegou) {
+
+      <div class="contador-area">
+
+        <div class="mensagem">
+
+          ⏳ Falta:
+
+        </div>
+
+
+        <div class="contador">
+
+          <div class="tempo">
+
+            <strong>
+              {{ contador.dias }}
+            </strong>
+
+            <span>
+              dias
+            </span>
+
+          </div>
+
+
+          <div class="tempo">
+
+            <strong>
+              {{ contador.horas }}
+            </strong>
+
+            <span>
+              horas
+            </span>
+
+          </div>
+
+
+          <div class="tempo">
+
+            <strong>
+              {{ contador.minutos }}
+            </strong>
+
+            <span>
+              minutos
+            </span>
+
+          </div>
+
+
+          <div class="tempo">
+
+            <strong>
+              {{ contador.segundos }}
+            </strong>
+
+            <span>
+              segundos
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      }
+
+
+      @if (contador.chegou) {
+
+      <div class="chegou">
+
+        <div class="icone">
+
+          🎉
+
+        </div>
+
+
+        <h2>
+
+          Chegou o dia pretendido!
+
+        </h2>
+
+
+        <p>
+
+          A data
+          <strong>
+            {{ formatarData(data.data_final) }}
+          </strong>
+          chegou.
+
+        </p>
+
+      </div>
+
+      }
+
+      }
+
+    </div>
 
     }
 
   </div>
 
 </div>
-

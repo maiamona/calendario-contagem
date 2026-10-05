@@ -83,7 +83,7 @@ export class Calendario implements OnInit, OnDestroy {
 
   constructor(
     private dataService: DataService
-  ) {}
+  ) { }
 
 
   // ========================================
@@ -206,50 +206,50 @@ export class Calendario implements OnInit, OnDestroy {
 
   apagarData(id: number): void {
 
-  const confirmar = confirm(
-    'Tem certeza que deseja apagar esta data?'
-  );
+    const confirmar = confirm(
+      'Tem certeza que deseja apagar esta data?'
+    );
 
-  if (!confirmar) {
-    return;
+    if (!confirmar) {
+      return;
+    }
+
+    this.dataService
+      .apagarData(id)
+      .subscribe({
+
+        next: () => {
+
+          // Remover imediatamente da tela
+          this.datas = this.datas.filter(
+            data => data.id !== id
+          );
+
+          // Remover também o contador
+          delete this.contadores[id];
+
+          alert(
+            'Data apagada com sucesso!'
+          );
+
+        },
+
+        error: (erro) => {
+
+          console.error(
+            'Erro ao apagar data:',
+            erro
+          );
+
+          alert(
+            'Não foi possível apagar a data.'
+          );
+
+        }
+
+      });
+
   }
-
-  this.dataService
-    .apagarData(id)
-    .subscribe({
-
-      next: () => {
-
-        // Remover imediatamente da tela
-        this.datas = this.datas.filter(
-          data => data.id !== id
-        );
-
-        // Remover também o contador
-        delete this.contadores[id];
-
-        alert(
-          'Data apagada com sucesso!'
-        );
-
-      },
-
-      error: (erro) => {
-
-        console.error(
-          'Erro ao apagar data:',
-          erro
-        );
-
-        alert(
-          'Não foi possível apagar a data.'
-        );
-
-      }
-
-    });
-
-}
 
 
   // ========================================

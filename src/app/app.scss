@@ -1,1 +1,86 @@
-* { box-sizing: border-box; } body { margin: 0; font-family: Arial, sans-serif; } .navbar { width: 100%; background: #212529; color: white; } .navbar-container { max-width: 1100px; min-height: 65px; margin: auto; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; } .logo { color: white; text-decoration: none; font-size: 20px; font-weight: bold; white-space: nowrap; } .menu { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; } .menu a { color: white; text-decoration: none; padding: 10px 13px; border-radius: 7px; transition: background 0.2s; white-space: nowrap; } .menu a:hover { background: #343a40; } .menu a.ativo { background: #007bff; } main { min-height: calc(100vh - 65px); } @media (max-width: 750px) { .navbar-container { flex-direction: column; padding: 15px; gap: 10px; } .menu { width: 100%; } } @media (max-width: 500px) { .menu { flex-direction: column; width: 100%; } .menu a { width: 100%; text-align: center; } }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  background: #212529;
+  color: white;
+}
+
+.navbar-container {
+  max-width: 1100px;
+  min-height: 65px;
+  margin: auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 13px;
+  border-radius: 7px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.menu a:hover {
+  background: #343a40;
+}
+
+.menu a.ativo {
+  background: #007bff;
+}
+
+main {
+  min-height: calc(100vh - 65px);
+}
+
+@media (max-width: 750px) {
+  .navbar-container {
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .menu {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .menu {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu a {
+    width: 100%;
+    text-align: center;
+  }
+}

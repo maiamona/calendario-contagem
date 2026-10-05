@@ -1,1 +1,43 @@
-<div class="pagina"> <div class="calculadora"> <div class="icone"> 🧮 </div> <h1>Calculadora</h1> <p class="descricao"> Faça cálculos de forma simples e rápida. </p> <!-- PRIMEIRO NÚMERO --> <div class="campo"> <label for="numero1"> Primeiro número </label> <input id="numero1" type="number" [(ngModel)]="numero1" placeholder="Digite o primeiro número" step="any" > </div> <!-- OPERAÇÃO --> <div class="campo"> <label for="operacao"> Operação </label> <select id="operacao" [(ngModel)]="operacao" > <option value="+"> Soma (+) </option> <option value="-"> Subtração (-) </option> <option value="*"> Multiplicação (×) </option> <option value="/"> Divisão (÷) </option> <option value="%"> Resto (%) </option> </select> </div> <!-- SEGUNDO NÚMERO --> <div class="campo"> <label for="numero2"> Segundo número </label> <input id="numero2" type="number" [(ngModel)]="numero2" placeholder="Digite o segundo número" step="any" > </div> <!-- BOTÃO CALCULAR --> <button type="button" class="btn-calcular" (click)="calcular()" > 🧮 Calcular </button> <!-- BOTÃO LIMPAR --> <button type="button" class="btn-limpar" (click)="limpar()" > 🗑 Limpar </button> <!-- RESULTADO --> <div class="resultado"> {{ resultado }} </div> </div> </div>
+<div class="pagina">
+  <div class="calculadora">
+    <div class="icone">
+      🧮
+    </div>
+    <h1>Calculadora</h1>
+    <p class="descricao">
+      Faça cálculos de forma simples e rápida.
+    </p>
+    <!-- PRIMEIRO NÚMERO -->
+    <div class="campo">
+      <label for="numero1"> Primeiro número </label>
+      <input id="numero1" type="number" [(ngModel)]="numero1" placeholder="Digite o primeiro número" step="any">
+    </div>
+    <!-- OPERAÇÃO -->
+    <div class="campo">
+      <label for="operacao"> Operação </label>
+      <select id="operacao" [(ngModel)]="operacao">
+        <option value="+"> Soma (+) </option>
+        <option value="-"> Subtração (-) </option>
+        <option value="*"> Multiplicação (×) </option>
+        <option value="/"> Divisão (÷) </option>
+        <option value="%"> Resto (%) </option>
+      </select>
+    </div>
+    <!-- SEGUNDO NÚMERO -->
+    <div class="campo">
+      <label for="numero2"> Segundo número </label>
+      <input id="numero2" type="number" [(ngModel)]="numero2" placeholder="Digite o segundo número" step="any">
+    </div>
+    <!-- BOTÃO CALCULAR -->
+    <button type="button" class="btn-calcular" (click)="calcular()">
+      🧮 Calcular
+    </button>
+    <!-- BOTÃO LIMPAR -->
+    <button type="button" class="btn-limpar" (click)="limpar()">
+      🗑 Limpar </button>
+    <!-- RESULTADO -->
+    <div class="resultado">
+      {{ resultado }}
+    </div>
+  </div>
+</div>
