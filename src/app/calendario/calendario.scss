@@ -1,0 +1,354 @@
+.pagina {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  background: #f2f4f7;
+
+}
+
+
+.cartao {
+
+  width: 100%;
+
+  max-width: 850px;
+
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.12);
+
+}
+
+
+h1 {
+
+  text-align: center;
+
+  margin-bottom: 10px;
+
+}
+
+
+.descricao {
+
+  text-align: center;
+
+  color: #666;
+
+  margin-bottom: 30px;
+
+}
+
+
+.campo {
+
+  margin-bottom: 20px;
+
+}
+
+
+.campo label {
+
+  display: block;
+
+  font-weight: bold;
+
+  margin-bottom: 8px;
+
+}
+
+
+.campo input {
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px;
+
+  font-size: 17px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 10px;
+
+}
+
+
+.btn-guardar {
+
+  width: 100%;
+
+  border: none;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  background: #198754;
+
+  color: white;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+}
+
+
+.btn-guardar:hover {
+
+  opacity: 0.9;
+
+}
+
+
+hr {
+
+  margin: 35px 0;
+
+  border: none;
+
+  border-top: 1px solid #ddd;
+
+}
+
+
+.titulo-datas {
+
+  margin-bottom: 20px;
+
+}
+
+
+.sem-datas {
+
+  text-align: center;
+
+  padding: 30px;
+
+  background: #f8f9fa;
+
+  border-radius: 12px;
+
+  color: #666;
+
+}
+
+
+.data-card {
+
+  margin-bottom: 20px;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  background: #f8f9fa;
+
+  border: 1px solid #ddd;
+
+}
+
+
+.data-chegou {
+
+  border: 2px solid #198754;
+
+}
+
+
+.data-cabecalho {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+
+}
+
+
+.label-data {
+
+  display: block;
+
+  color: #777;
+
+  font-size: 14px;
+
+}
+
+
+.data-cabecalho h3 {
+
+  margin: 5px 0 0;
+
+}
+
+
+.btn-apagar {
+
+  border: none;
+
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  background: #dc3545;
+
+  color: white;
+
+  cursor: pointer;
+
+}
+
+
+.contador-area {
+
+  margin-top: 25px;
+
+}
+
+
+.mensagem {
+
+  text-align: center;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+
+}
+
+
+.contador {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 12px;
+
+}
+
+
+.tempo {
+
+  text-align: center;
+
+  background: white;
+
+  padding: 18px 10px;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 3px 10px
+    rgba(0, 0, 0, 0.08);
+
+}
+
+
+.tempo strong {
+
+  display: block;
+
+  font-size: 30px;
+
+}
+
+
+.tempo span {
+
+  color: #666;
+
+}
+
+
+.chegou {
+
+  text-align: center;
+
+  margin-top: 25px;
+
+  padding: 25px;
+
+  border-radius: 12px;
+
+  background: #e8f5e9;
+
+}
+
+
+.icone {
+
+  font-size: 55px;
+
+}
+
+
+.chegou h2 {
+
+  margin: 10px 0;
+
+}
+
+
+.chegou p {
+
+  color: #555;
+
+}
+
+
+@media (max-width: 600px) {
+
+  .cartao {
+
+    padding: 25px 15px;
+
+  }
+
+
+  .data-cabecalho {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+  }
+
+
+  .btn-apagar {
+
+    width: 100%;
+
+  }
+
+
+  .contador {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+}
