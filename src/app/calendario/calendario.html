@@ -1,226 +1,44 @@
 <div class="pagina">
-
   <div class="cartao">
-
     <h1>📅 Contagem Regressiva</h1>
-
-    <p class="descricao">
-      Escolha uma data e acompanhe quanto tempo falta.
-    </p>
-
-
+    <p class="descricao"> Escolha uma data e hora e acompanhe quanto tempo falta. </p>
     <!-- ================================= -->
-    <!-- ESCOLHER NOVA DATA -->
+    <!-- ESCOLHER NOVA DATA E HORA -->
     <!-- ================================= -->
-
-    <div class="campo">
-
-      <label for="data">
-
-        Escolha uma nova data:
-
-      </label>
-
-
-      <input id="data" type="date" [(ngModel)]="dataSelecionada">
-
-    </div>
-
-
-    <button class="btn-guardar" (click)="guardarData()">
-
-      💾 Guardar nova data
-
-    </button>
-
-
-    <hr>
-
-
-    <!-- ================================= -->
+    <div class="campo"> <label for="data"> Escolha uma nova data e hora: </label> <input id="data" type="datetime-local"
+        [(ngModel)]="dataSelecionada"> </div> <button class="btn-guardar" (click)="guardarData()"> 💾 Guardar data e
+      hora </button>
+    <hr> <!-- ================================= -->
     <!-- DATAS GUARDADAS -->
     <!-- ================================= -->
-
-    <h2 class="titulo-datas">
-
-      📋 Datas guardadas
-
-    </h2>
-
-
-    @if (datas.length === 0) {
-
-    <div class="sem-datas">
-
-      <p>
-        Não existem datas guardadas.
-      </p>
-
-    </div>
-
-    }
-
-
+    <h2 class="titulo-datas"> 📋 Datas guardadas </h2> @if (datas.length === 0) { <div class="sem-datas">
+      <p> Não existem datas guardadas. </p>
+    </div> }
     <!-- ================================= -->
     <!-- LISTA DE DATAS -->
-    <!-- ================================= -->
-
-    @for (data of datas; track data.id) {
-
-    <div class="data-card" [class.data-chegou]="
-          obterContador(data.id)?.chegou
-        ">
-
-
-      <!-- DATA -->
-
+    <!-- ================================= --> @for (data of datas; track data.id) { <div class="data-card"
+      [class.data-chegou]=" obterContador(data.id)?.chegou ">
+      <!-- DATA E HORA -->
       <div class="data-cabecalho">
-
-        <div>
-
-          <span class="label-data">
-            Data pretendida
-          </span>
-
-
-          <h3>
-
-            📅
-            {{ formatarData(data.data_final) }}
-
-          </h3>
-
-        </div>
-
-
-        <button class="btn-apagar" (click)="apagarData(data.id)">
-
-          🗑 Apagar
-
-        </button>
-
-      </div>
-
-
-      <!-- ================================= -->
+        <div> <span class="label-data"> Data e hora pretendida </span>
+          <h3> 📅 {{ formatarData(data.data_final) }} </h3>
+        </div> <button class="btn-apagar" (click)="apagarData(data.id)"> 🗑 Apagar </button>
+      </div> <!-- ================================= -->
       <!-- CONTAGEM -->
-      <!-- ================================= -->
-
-      @if (
-      obterContador(data.id);
-      as contador
-      ) {
-
-
-      @if (!contador.chegou) {
-
+      <!-- ================================= --> @if ( obterContador(data.id); as contador ) { @if (!contador.chegou) {
       <div class="contador-area">
-
-        <div class="mensagem">
-
-          ⏳ Falta:
-
-        </div>
-
-
+        <div class="mensagem"> ⏳ Falta: </div>
         <div class="contador">
-
-          <div class="tempo">
-
-            <strong>
-              {{ contador.dias }}
-            </strong>
-
-            <span>
-              dias
-            </span>
-
-          </div>
-
-
-          <div class="tempo">
-
-            <strong>
-              {{ contador.horas }}
-            </strong>
-
-            <span>
-              horas
-            </span>
-
-          </div>
-
-
-          <div class="tempo">
-
-            <strong>
-              {{ contador.minutos }}
-            </strong>
-
-            <span>
-              minutos
-            </span>
-
-          </div>
-
-
-          <div class="tempo">
-
-            <strong>
-              {{ contador.segundos }}
-            </strong>
-
-            <span>
-              segundos
-            </span>
-
-          </div>
-
+          <div class="tempo"> <strong> {{ contador.dias }} </strong> <span> dias </span> </div>
+          <div class="tempo"> <strong> {{ contador.horas }} </strong> <span> horas </span> </div>
+          <div class="tempo"> <strong> {{ contador.minutos }} </strong> <span> minutos </span> </div>
+          <div class="tempo"> <strong> {{ contador.segundos }} </strong> <span> segundos </span> </div>
         </div>
-
-      </div>
-
-      }
-
-
-      @if (contador.chegou) {
-
-      <div class="chegou">
-
-        <div class="icone">
-
-          🎉
-
-        </div>
-
-
-        <h2>
-
-          Chegou o dia pretendido!
-
-        </h2>
-
-
-        <p>
-
-          A data
-          <strong>
-            {{ formatarData(data.data_final) }}
-          </strong>
-          chegou.
-
-        </p>
-
-      </div>
-
-      }
-
-      }
-
-    </div>
-
-    }
-
+      </div> } @if (contador.chegou) { <div class="chegou">
+        <div class="icone"> 🎉 </div>
+        <h2> Chegou o momento pretendido! </h2>
+        <p> A data e hora <strong> {{ formatarData(data.data_final) }} </strong> chegaram. </p>
+      </div> } }
+    </div> }
   </div>
-
 </div>
