@@ -41,7 +41,7 @@
           <h3> {{ formatarData(data.data_final) }} </h3>
         </div> <!-- BOTÕES -->
         <div class="acoes-data"> <button type="button" class="btn-visualizar" (click)="visualizarData(data)"> 👁️
-            Visualizar </button> <button type="button" class="btn-apagar" (click)="apagarData(data.id)"> 🗑 Apagar
+            Visualizar / Ocultar </button> <button type="button" class="btn-apagar" (click)="apagarData(data.id)"> 🗑 Apagar
           </button> </div>
       </div> <!-- ========================================== CONTADOR =========================================== -->
       @if (!obterContador(data.id).chegou) { <div class="contador-area">

@@ -461,7 +461,7 @@ grid-template-columns: repeat(2, 1fr);
 
 .dia-passado-visualizacao {
   background: #adb5bd !important;
-  color: white !important;
+  color: #adb5bd !important;
   font-weight: bold;
 }
 
@@ -481,6 +481,8 @@ grid-template-columns: repeat(2, 1fr);
 
 .dia-hoje-visualizacao {
   border: 3px solid #ffc107 !important;
+  color: #ffc107 !important;
+  //background: #ffc107 !important;
 }
 
 /* ========================================
