@@ -30,3 +30,6 @@ export class App implements OnInit {
   }
 
 }
+
+//npm run dev
+//ng serve
