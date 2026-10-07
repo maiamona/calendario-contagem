@@ -24,3 +24,16 @@
 <main>
   <router-outlet></router-outlet>
 </main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="data-hora">
+    📅 {{ dataAtual | date:'dd/MM/yyyy' }}
+    &nbsp; | &nbsp;
+    🕐 {{ dataAtual | date:'HH:mm' }}
+  </div>
+
+  <div class="copyright">
+    © {{ dataAtual | date:'yyyy' }} Meu Calendário
+  </div>
+</footer>

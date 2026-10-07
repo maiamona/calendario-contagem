@@ -1,16 +1,32 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [
-        RouterLink,
-        RouterLinkActive,
-        RouterOutlet
-    ],
-    templateUrl: './app.html',
-    styleUrl: './app.scss'
+  selector: 'app-root',
+  standalone: true,
+
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    DatePipe
+  ],
+
+  templateUrl: './app.html',
+  styleUrl: './app.scss'
 })
-export class App { }
-//npm run dev
-//ng serve
+export class App implements OnInit {
+
+  dataAtual = new Date();
+
+  ngOnInit(): void {
+
+    // Atualiza a data/hora a cada minuto
+    setInterval(() => {
+      this.dataAtual = new Date();
+    }, 60000);
+
+  }
+
+}
