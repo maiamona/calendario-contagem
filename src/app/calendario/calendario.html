@@ -1,44 +1,88 @@
 <div class="pagina">
   <div class="cartao">
-    <h1>📅 Contagem Regressiva</h1>
-    <p class="descricao"> Escolha uma data e hora e acompanhe quanto tempo falta. </p>
-    <!-- ================================= -->
-    <!-- ESCOLHER NOVA DATA E HORA -->
-    <!-- ================================= -->
-    <div class="campo"> <label for="data"> Escolha uma nova data e hora: </label> <input id="data" type="datetime-local"
-        [(ngModel)]="dataSelecionada"> </div> <button class="btn-guardar" (click)="guardarData()"> 💾 Guardar data e
-      hora </button>
-    <hr> <!-- ================================= -->
-    <!-- DATAS GUARDADAS -->
-    <!-- ================================= -->
-    <h2 class="titulo-datas"> 📋 Datas guardadas </h2> @if (datas.length === 0) { <div class="sem-datas">
-      <p> Não existem datas guardadas. </p>
-    </div> }
-    <!-- ================================= -->
-    <!-- LISTA DE DATAS -->
-    <!-- ================================= --> @for (data of datas; track data.id) { <div class="data-card"
-      [class.data-chegou]=" obterContador(data.id)?.chegou ">
-      <!-- DATA E HORA -->
+    <h1>📅 Calendário de Contagem</h1>
+    <p class="descricao"> Escolha uma data e acompanhe a contagem regressiva. </p>
+    <!-- ========================================== DATA SELECIONADA =========================================== -->
+    <div class="campo"> <label>Data selecionada</label>
+      <div class="data-selecionada"> {{ textoDataSelecionada }} </div>
+    </div>
+    <!-- ========================================== CALENDÁRIO PRINCIPAL =========================================== -->
+    <div class="calendario">
+      <div class="calendario-cabecalho"> <button type="button" class="btn-mes" (click)="mesAnterior()"> ‹ </button>
+        <strong> {{ nomeMesAtual }} {{ anoAtual }} </strong> <button type="button" class="btn-mes"
+          (click)="mesSeguinte()"> › </button> </div>
+      <div class="dias-semana">
+        <div>Dom</div>
+        <div>Seg</div>
+        <div>Ter</div>
+        <div>Qua</div>
+        <div>Qui</div>
+        <div>Sex</div>
+        <div>Sáb</div>
+      </div>
+      <div class="dias-calendario"> @for (dia of diasCalendario; track $index) { @if (dia === null) { <div
+          class="dia vazio"></div> } @else { <button type="button" class="dia" [class.hoje]="ehHoje(dia)"
+          [class.selecionado]=" ehDataSelecionada(dia) " [class.intervalo]=" estaNoIntervalo(dia) "
+          [class.passado]=" ehDataPassada(dia) " (click)="selecionarDia(dia)"> {{ dia }} </button> } } </div>
+    </div> <!-- ========================================== HORA =========================================== -->
+    <div class="campo-hora"> <label for="hora"> Hora da data final </label> <input id="hora" type="time"
+        [(ngModel)]="horaSelecionada" /> </div>
+    <!-- ========================================== BOTÃO GUARDAR =========================================== -->
+    <button type="button" class="btn-guardar" (click)="guardarData()"> 💾 Guardar data </button>
+    <!-- ========================================== MENSAGENS =========================================== --> @if
+    (mensagem) { <div class="mensagem"> {{ mensagem }} </div> } @if (erro) { <div class="mensagem"> {{ erro }} </div> }
+    <hr> <!-- ========================================== DATAS GUARDADAS =========================================== -->
+    <h2 class="titulo-datas"> 📋 Datas guardadas </h2> @if (datas.length === 0) { <div class="sem-datas"> Não existem
+      datas guardadas. </div> } @else { @for (data of datas; track data.id) { <div class="data-card"
+      [class.data-chegou]=" obterContador(data.id).chegou ">
+      <!-- ========================================== CABEÇALHO =========================================== -->
       <div class="data-cabecalho">
-        <div> <span class="label-data"> Data e hora pretendida </span>
-          <h3> 📅 {{ formatarData(data.data_final) }} </h3>
-        </div> <button class="btn-apagar" (click)="apagarData(data.id)"> 🗑 Apagar </button>
-      </div> <!-- ================================= -->
-      <!-- CONTAGEM -->
-      <!-- ================================= --> @if ( obterContador(data.id); as contador ) { @if (!contador.chegou) {
-      <div class="contador-area">
-        <div class="mensagem"> ⏳ Falta: </div>
+        <div> <span class="label-data"> Data final </span>
+          <h3> {{ formatarData(data.data_final) }} </h3>
+        </div> <!-- BOTÕES -->
+        <div class="acoes-data"> <button type="button" class="btn-visualizar" (click)="visualizarData(data)"> 👁️
+            Visualizar </button> <button type="button" class="btn-apagar" (click)="apagarData(data.id)"> 🗑 Apagar
+          </button> </div>
+      </div> <!-- ========================================== CONTADOR =========================================== -->
+      @if (!obterContador(data.id).chegou) { <div class="contador-area">
+        <div class="mensagem"> ⏳ Tempo restante </div>
         <div class="contador">
-          <div class="tempo"> <strong> {{ contador.dias }} </strong> <span> dias </span> </div>
-          <div class="tempo"> <strong> {{ contador.horas }} </strong> <span> horas </span> </div>
-          <div class="tempo"> <strong> {{ contador.minutos }} </strong> <span> minutos </span> </div>
-          <div class="tempo"> <strong> {{ contador.segundos }} </strong> <span> segundos </span> </div>
+          <div class="tempo"> <strong> {{ obterContador(data.id).dias }} </strong> <span> Dias </span> </div>
+          <div class="tempo"> <strong> {{ obterContador(data.id).horas }} </strong> <span> Horas </span> </div>
+          <div class="tempo"> <strong> {{ obterContador(data.id).minutos }} </strong> <span> Minutos </span> </div>
+          <div class="tempo"> <strong> {{ obterContador(data.id).segundos }} </strong> <span> Segundos </span> </div>
         </div>
-      </div> } @if (contador.chegou) { <div class="chegou">
+      </div> } @else { <div class="chegou">
         <div class="icone"> 🎉 </div>
-        <h2> Chegou o momento pretendido! </h2>
-        <p> A data e hora <strong> {{ formatarData(data.data_final) }} </strong> chegaram. </p>
-      </div> } }
-    </div> }
+        <h2> A data chegou! </h2>
+        <p> O período de contagem terminou. </p>
+      </div> }
+      <!-- ========================================== VISUALIZAÇÃO DO INTERVALO =========================================== -->
+      @if ( dataVisualizada && dataVisualizada.id === data.id ) { <div class="visualizacao-intervalo">
+        <h4> 📅 Visualização do intervalo </h4> <!-- LEGENDA -->
+        <div class="legenda"> <span> <i class="legenda-cinza"></i> Dias passados </span> <span> <i
+              class="legenda-verde"></i> Dias restantes </span> </div> <!-- CALENDÁRIO DA VISUALIZAÇÃO -->
+        <div class="calendario calendario-visualizacao">
+          <div class="calendario-cabecalho"> <button type="button" class="btn-mes" (click)="mesAnteriorVisualizacao()">
+              ‹ </button> <strong> {{ nomeMesVisualizacao }} {{ anoVisualizacao }} </strong> <button type="button"
+              class="btn-mes" (click)="proximoMesVisualizacao()"> › </button> </div>
+          <div class="dias-semana">
+            <div>Dom</div>
+            <div>Seg</div>
+            <div>Ter</div>
+            <div>Qua</div>
+            <div>Qui</div>
+            <div>Sex</div>
+            <div>Sáb</div>
+          </div>
+          <div class="dias-calendario"> @for ( dia of diasVisualizacao; track $index ) { @if (dia === null) { <div
+              class="dia vazio"></div> } @else { <div class="dia dia-visualizacao"
+              [class.dia-passado-visualizacao]=" diaPassadoVisualizacao(dia) "
+              [class.dia-restante-visualizacao]=" diaRestanteVisualizacao(dia) "
+              [class.dia-hoje-visualizacao]=" diaHojeVisualizacao(dia) "
+              [class.dia-final-visualizacao]=" diaFinalVisualizacao(dia) "> {{ dia }} </div> } } </div>
+        </div>
+      </div> }
+    </div> } }
   </div>
 </div>
